@@ -1,14 +1,14 @@
 const express = require("express");
 const OrderRouter = express.Router();
-const OrderService = require("./OrderService");
+const CartService = require("./CartService");
 
 
 OrderRouter 
-    .route("/order")
+    .route("/checkout")
     .all(express.json())
     .all(express.urlencoded({ extended: true}))
     .get((req, res)=>{
-        OrderService.getOrdersByUser(req.app.get("db"), req.user.id)
+        CartService.getCartByUser(req.app.get("db"), req.user.id)
             .then( data => res.json({data}))
     })
     .post((req, res)=>{
@@ -23,7 +23,7 @@ OrderRouter
             }
         }
 
-        OrderService.addToCheckout(req.app.get("db"), req.user.id, req.body.items)
+        CartService.addToCheckout(req.app.get("db"), req.user.id, req.body.items)
             .then( data => {
                 if(!data){
                     return;
@@ -32,7 +32,7 @@ OrderRouter
             });
     })
     .patch((req, res)=>{
-        OrderService.updateCheckout(req.app.get("db"), req.user.id, req.body.items)
+        CartService.updateCheckout(req.app.get("db"), req.user.id, req.body.items)
             .then( data => {
                 console.log(data);
                 if(!data){
@@ -42,7 +42,7 @@ OrderRouter
             });
     })
     .delete((req, res)=>{
-        OrderService.deleteCheckout(req.app.get("db"), req.user.id)
+        CartService.deleteCheckout(req.app.get("db"), req.user.id)
             .then( data => {
                 return res.status(200).json({ sucess: "Deleted"})
             })

@@ -1,6 +1,6 @@
 
-const OrderService = {
-    getOrdersByUser(db, id){
+const CartService = {
+    getCartByUser(db, id){
         return db.select("*").from("checkout").where({user_id: id}).returning("*").then(([orders]) => orders)
     },
     addToCheckout(db, id, items){
@@ -14,4 +14,4 @@ const OrderService = {
     }
 }
 
-module.exports = OrderService;
+module.exports = CartService;
