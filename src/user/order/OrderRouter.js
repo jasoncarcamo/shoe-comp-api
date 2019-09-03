@@ -14,7 +14,7 @@ OrderRouter
                     return res.status(400).json({ error: `No orders found.`})
                 };
                 
-                res.status(200).json(orders)
+                return res.status(200).json(orders)
             })
     })
     .post((req, res)=>{
@@ -24,8 +24,7 @@ OrderRouter
 
         OrderService.newOrder(req.app.get("db"), newOrder)
             .then( data => {
-                console.log( data );
-                return res.status(204).json(data)
+                return res.status(201).json(data)
             })
     })
 
