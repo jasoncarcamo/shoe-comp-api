@@ -11,7 +11,6 @@ RegRouter.use(express.urlencoded({ extended: true}));
 RegRouter
     .post("/register", (req, res, next)=>{
         const { first_name, last_name, email, password} = req.body;
-        console.log(req.body)
         const newUser = { first_name, last_name, email, password};
 
         for(const [key, value] of Object.entries(newUser)){

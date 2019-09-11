@@ -11,7 +11,6 @@ AuthRouter.use(express.urlencoded({ extended: true}));
 AuthRouter
     .post("/login", (req, res, next)=>{
         const {email, password} = req.body;
-        console.log(req.body)
         const user = {
             email,
             password
@@ -20,14 +19,16 @@ AuthRouter
         for(const [key, value] of Object.entries(user)){
             if(value == null){
                 return res.status(400).json({ error: `Missing ${key} in body request`});
-            }
-        }
+            };
+        };
 
         AuthService.getUserByEmail(req.app.get("db"), user.email)
             .then( dbUser =>{
+
                 if(!dbUser){
                     return  res.status(400).json({ error: `No account found. You can sign up here.`})
                 };
+
                 AuthService.comparePassword(user.password, dbUser.password)
                     .then( matches =>{
                         if(!matches){
@@ -43,6 +44,6 @@ AuthRouter
                     
             })
             .catch(next);
-    })
+    });
 
 module.exports = AuthRouter;

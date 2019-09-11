@@ -10,6 +10,7 @@ OrderRouter
     .get((req, res)=> {
         OrderService.getOrders(req.app.get("db"), req.user.id)
             .then( orders => {
+                
                 if( orders.length == 0){
                     return res.status(400).json({ error: `No orders found.`})
                 };
@@ -21,6 +22,12 @@ OrderRouter
 
         const {items} = req.body;
         const newOrder = {items, user_id: req.user.id}
+
+        for(const [key, value] of Object.entries(newOrder)){
+            if(value == null){
+                return res.status(400).json({ error: `Missing ${key} in body request`});
+            };
+        };
 
         OrderService.newOrder(req.app.get("db"), newOrder)
             .then( data => {

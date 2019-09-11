@@ -34,7 +34,7 @@ OrderRouter
     .patch((req, res)=>{
         CartService.updateCheckout(req.app.get("db"), req.user.id, req.body.items)
             .then( data => {
-                console.log(data);
+                
                 if(!data){
                     return;
                 }
