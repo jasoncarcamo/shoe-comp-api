@@ -2,7 +2,7 @@
   "name": "shoe-comp-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/app/server.js",
   "scripts": {
     "start": "node ./src/app/server.js",
     "test-migrate": "postgrator --config ./test-postgrate-config.js",
