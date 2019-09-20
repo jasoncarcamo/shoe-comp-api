@@ -20,7 +20,7 @@ app.use("/api", AuthRouter);
 app.use("/user", UserRouter);
 
 app.get("/", (req, res)=> {
-    res.send("Working");
+    res.send("Hello");
 });
 
 module.exports = app;
