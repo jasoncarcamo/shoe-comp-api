@@ -9,7 +9,6 @@ const UserRouter = require("../user/UserRouter");
 app.use(cors());
 app.use(helmet());
 
-
 app.use("/api", RegRouter);
 app.use("/api", AuthRouter);
 app.use("/user", UserRouter);
