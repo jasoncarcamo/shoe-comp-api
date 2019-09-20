@@ -21,6 +21,6 @@ app.use("/user", UserRouter);
 
 app.get("/", (req, res)=> {
     res.send("Working");
-})
+});
 
 module.exports = app;
