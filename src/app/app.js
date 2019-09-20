@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
 
 app.use(cors());
 app.use(helmet());
+app.use(morgan("tiny"));
 
 //Routers
 const RegRouter = require("../registration/RegRouter");
