@@ -2,15 +2,12 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const helmet = require("helmet");
-
-app.use(cors());
-app.use(helmet());
-
-//Routers
 const RegRouter = require("../registration/RegRouter");
 const AuthRouter = require("../authorization/AuthRouter")
 const UserRouter = require("../user/UserRouter");
 
+app.use(cors());
+app.use(helmet());
 
 
 app.use("/api", RegRouter);
