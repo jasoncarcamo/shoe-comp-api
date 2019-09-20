@@ -6,6 +6,7 @@
   "scripts": {
     "test-migrate": "postgrator --config ./test-postgrate-config.js",
     "migrate": "postgrator --config ./postgrate-config.js",
+    "start": "node ./src/app/server.js",
     "dev": "nodemon ./src/app/server.js",
     "test": "mocha --require test/setup.js"
   },
