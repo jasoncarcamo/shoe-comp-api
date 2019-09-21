@@ -32,19 +32,18 @@ AuthRouter
                 };
 
                 AuthService.comparePassword(user.password, dbUser.password)
-                    .then( matches =>{(matches)
-
+                    .then( matches =>{
+                        
                         if(!matches){
                             return res.status(400).json({ error: "Incorrect password"});
                         };
 
                         const sub = dbUser.email;
-                        const payload = { user: dbUser.last_name};
+                        const payload = { user: dbUser.id};
 
                         return res.status(200).json({ authToken: AuthService.createJwt(sub, payload)
                         });
-                    })  
-                    .catch(next)                  
+                    })                
             })
             .catch(next)
     });
