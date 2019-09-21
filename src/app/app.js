@@ -6,6 +6,7 @@ const RegRouter = require("../registration/RegRouter");
 const AuthRouter = require("../authorization/AuthRouter")
 const UserRouter = require("../user/UserRouter");
 
+app.use(morgan("tiny"));
 app.use(cors());
 app.use(helmet());
 
