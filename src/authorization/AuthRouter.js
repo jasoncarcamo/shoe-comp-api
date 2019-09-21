@@ -33,7 +33,6 @@ AuthRouter
 
                 AuthService.comparePassword(user.password, dbUser.password)
                     .then( matches =>{
-                        
                         if(!matches){
                             return res.status(400).json({ error: "Incorrect password"});
                         };
@@ -43,7 +42,8 @@ AuthRouter
 
                         return res.status(200).json({ authToken: AuthService.createJwt(sub, payload)
                         });
-                    })                
+                    })       
+                    .catch(next)         
             })
             .catch(next)
     });
