@@ -14,16 +14,20 @@ app.use("/api", AuthRouter);
 app.use("/user", UserRouter);
 
 app.use(function errorHandler(error, req, res, next) {
-    let response
+
+    let response;
+
     if (NODE_ENV === 'production') {
       response = { error: 'Server error' }
     } else {
       
       response = { error: error.message, object: error }
-    }
-    console.error(error)
-    res.status(500).json(response)
-  })
+    };
+
+    console.error(error);
+
+    res.status(500).json(response);
+  });
 
 app.get("/", (req, res)=> {
     res.send("Hello");

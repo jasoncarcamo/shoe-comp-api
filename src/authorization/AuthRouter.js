@@ -27,13 +27,14 @@ AuthRouter
 
         AuthService.getUserByEmail(req.app.get("db"), user.email)
             .then( dbUser =>{
-
+                console.log(dbUser)
                 if(!dbUser){
                     return  res.status(400).json({ error: `No account found. You can sign up here.`})
                 };
 
                 AuthService.comparePassword(user.password, dbUser.password)
                     .then( matches =>{
+                        console.log(matches)
                         if(!matches){
                             return res.status(400).json({ error: "Incorrect password"});
                         };
@@ -43,8 +44,7 @@ AuthRouter
 
                         return res.status(200).json({ authToken: AuthService.createJwt(sub, payload)
                         });
-                    });
-                    
+                    })                    
             })
             .catch(next)
     });
