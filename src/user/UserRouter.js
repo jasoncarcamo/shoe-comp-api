@@ -14,7 +14,9 @@ UserRouter
     .all(express.json())
     .all(express.urlencoded({ extended: true}))
     .get((req, res, next)=>{
-        res.status(200).json({ first_name: req.user.first_name, last_name: req.user.last_name})
+
+        return res.status(200).json({ first_name: req.user.first_name, last_name: req.user.last_name});
+        
     })
 
 

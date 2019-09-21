@@ -26,7 +26,7 @@ app.use(function errorHandler(error, req, res, next) {
 
     console.error(error);
 
-    res.status(500).json(response);
+    return res.status(500).json(response);
   });
 
 app.get("/", (req, res)=> {
