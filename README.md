@@ -17,6 +17,9 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br/>
 
 ## Api url: https://salty-brushlands-63375.herokuapp.com
+For demo purpose you can use:
+- Email: email@email.com
+- Password: Password11!
 
 ## Summary
 The Api makes requests to a private database on heroku. Features include endpoints for creating users and complete control of creating, editing, and deleting orders.
