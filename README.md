@@ -30,10 +30,10 @@ The Api makes requests to a private database on heroku. Features include endpoin
 - POST /api/login Creates and returns a authorization token when a user logs in
 
 ## /user/checkout - Checkout endpoints to keep track of items in checkout
-- GET Returns all items in users checkout if available
-- POST Creates a new item to add to users checkout
-- PATCH Updates all items in checkout at once
-- DELETE Deletes an item from checkout
+- GET /user/checkout Returns all items in users checkout if available
+- POST /user/checkout Creates a new item to add to users checkout
+- PATCH /user/checkout Updates all items in checkout at once
+- DELETE /user/checkout Deletes an item from checkout
 
 
 ## /user/order - Order endpoints
