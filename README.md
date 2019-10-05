@@ -26,7 +26,7 @@ The Api makes requests to a private database on heroku. Features include endpoin
 - POST /api/register Create a new user
 - DELETE /api/delete/:id Deletes a user by id
 
-## /api/login - Logs in a user and returns a authorization oken
+## /api/login - Logs in a user and returns a authorization token
 - POST /api/login Creates and returns a authorization token when a user logs in
 
 ## /user/checkout - Checkout endpoints to keep track of items in checkout
