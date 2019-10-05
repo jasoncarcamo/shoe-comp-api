@@ -1,7 +1,7 @@
 const express = require("express");
 const RegRouter = express.Router();
 const RegService = require("./RegService");
-
+const AuthService = require("../authorization/AuthService");
 
 
 RegRouter.use(express.json());
@@ -37,13 +37,15 @@ RegRouter
 
                         return RegService.insertUser( req.app.get("db"), newUser)
                             .then( user => {
+
                                 const sub = newUser.email;
 
                                 const payload = {
                                     user: newUser.last_name
                                 };
 
-                                return res.status(201).json(RegService.serializeUser(user));
+                                return res.status(201).json({ authToken: AuthService.createJwt(sub, payload)
+                                });
                             });
                     });
             });
