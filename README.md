@@ -17,12 +17,29 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br/>
 
 ## Api url: https://salty-brushlands-63375.herokuapp.com
-For demo purpose you can use:
-- Email: email@email.com
-- Password: Password11!
 
 ## Summary
 The Api makes requests to a private database on heroku. Features include endpoints for creating users and complete control of creating, editing, and deleting orders.
+
+## /api/register - Register an account
+
+- POST /api/register Create a new user
+- DELETE /api/delete/:id Deletes a user by id
+
+## /api/login - Logs in a user and returns a authorization oken
+- POST /api/login Creates and returns a authorization token when a user logs in
+
+## /user/checkout - Checkout endpoints to keep track of items in checkout
+- GET Returns all items in users checkout if available
+- POST Creates a new item to add to users checkout
+- PATCH Updates all items in checkout at once
+- DELETE Deletes an item from checkout
+
+
+## /user/order - Order endpoints
+
+- GET /user/order Returns specific order by user id that is provided by an authorization token when logged in
+-POST /user/order Create a new order onced checked out
 
 ## Built with:
 - PostgreSQL
