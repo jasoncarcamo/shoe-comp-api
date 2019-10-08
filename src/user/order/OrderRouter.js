@@ -12,7 +12,7 @@ OrderRouter
             .then( orders => {
                 
                 if( orders.length == 0){
-                    return res.status(400).json({ error: `No orders found.`})
+                    return res.status(200).json({ error: `No orders found.`})
                 };
                 
                 return res.status(200).json(orders)

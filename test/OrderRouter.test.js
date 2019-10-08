@@ -41,7 +41,7 @@ describe("Order endpoint /user/order", ()=>{
                 .get("/user/order")
                 .set("authorization", auth)
                 .send()
-                .expect(400, { error: "No orders found."});
+                .expect(200, { error: "No orders found."});
         });
 
         it("Should return 200 if the user has a order histroy", ()=>{
